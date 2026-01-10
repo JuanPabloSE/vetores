@@ -27,8 +27,9 @@ public class ExProposto04 {
             if (vet[i] < media) {
                 System.out.printf("%.1f%n", vet[i]);
             }
+        }
 
             sc.close();
-        }
+
     }
 }
