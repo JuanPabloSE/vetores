@@ -17,7 +17,7 @@ public class ExProposto08 {
         }
 
         double maior = altura[0];       // MAIOR ALTURA
-        for (int i = 1; i < N; i++) {
+        for (int i = 1; i < altura.length; i++) {
             if (altura[i] > maior) {
                 maior = altura[i];
             }
@@ -25,7 +25,7 @@ public class ExProposto08 {
         System.out.printf("Maior altura = %.2f%n", maior);
 
         double menor = altura[0];       // MENOR ALTURA
-        for (int i = 1; i < N; i++) {
+        for (int i = 1; i < altura.length; i++) {
             if (altura[i] < menor) {
                 menor = altura[i];
             }
@@ -34,7 +34,7 @@ public class ExProposto08 {
 
         double somaMulheres = 0.0;
         int cont = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < sexo.length; i++) {
             if (sexo[i] == 'F') {
                 cont++;
                 somaMulheres += altura[i];
@@ -51,7 +51,7 @@ public class ExProposto08 {
         }
 
         int contHomens = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < sexo.length; i++) {
             if (sexo[i] == 'M') {
                 contHomens++;
             }
