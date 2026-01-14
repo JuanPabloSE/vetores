@@ -18,52 +18,39 @@ public class ExProposto09 {
             precoVenda[i] = sc.nextDouble();
         }
 
-        // CÁLCULO - LUCRO ENTRE 10% e 20%.
-        int quantidadeDezVinte = 0;
-        for (int i = 0; i < produtos.length; i++) {
-            double lucroDezVinte =  ((precoVenda[i] - precoCompra[i]) / precoCompra[i]) * 100.0;
-            if (lucroDezVinte >= 10.0 && lucroDezVinte <= 20.0) {
-                quantidadeDezVinte++;
+        int contAbaixoDe10 = 0;
+        int contEntre10E20 = 0;
+        int contAcimaDe20 = 0;
+        for (int i=0; i<N; i++) {
+
+            double lucro = precoVenda[i] - precoCompra[i];
+            double porcentagemDeLucro = lucro / precoCompra[i] * 100.0;
+
+            if (porcentagemDeLucro < 10.0) {
+                contAbaixoDe10++;
+            }
+            else if (porcentagemDeLucro <= 20.0) {
+                contEntre10E20++;
+            }
+            else {
+                contAcimaDe20++;
             }
         }
-        System.out.println("Lucro entre 10% e 20%: " + quantidadeDezVinte);
+        System.out.println("Lucro abaixo de 10%: " + contAbaixoDe10);
+        System.out.println("Lucro entre 10% e 20%: " + contEntre10E20);
+        System.out.println("Lucro acima de 20%: " + contAcimaDe20);
 
-        // CÁLCULO - LUCRO ABAIXO DE 10%.
-        int quantidadeDez = 0;
-        for (int i = 0; i < produtos.length; i++) {
-            double lucroDez =  ((precoVenda[i] - precoCompra[i]) / precoCompra[i]) * 100.0;
-            if (lucroDez < 10.0){
-                quantidadeDez++;
-            }
-        }
-        System.out.println("Lucro abaixo de 10%: " + quantidadeDez);
-
-        // CÁLCULO - LUCRO ACIMA DE 20%.
-        int quantidadeVinte = 0;
-        for (int i = 0; i < produtos.length; i++) {
-            double lucroVinte = ((precoVenda[i] - precoCompra[i]) / precoCompra[i]) * 100;
-            if (lucroVinte > 20.0) {
-                quantidadeVinte++;
-            }
-        }
-        System.out.println("Lucro acima de 20%: " + quantidadeVinte);
-
-        // VALOR TOTAL DE COMPRA.
+        // TOTAIS:
         double totalCompra = 0.0;
-        for (int i = 0; i < produtos.length; i++) {
-            totalCompra += precoCompra[i];
-        }
-        System.out.printf("Valor total de compra: %.2f%n", totalCompra);
-
-        // VALOR TOTAL DE VENDA.
         double totalVenda = 0.0;
         for (int i = 0; i < produtos.length; i++) {
+            totalCompra += precoCompra[i];
             totalVenda += precoVenda[i];
         }
-        System.out.printf("Valor total de venda: %.2f%n", totalVenda);
-
-        // LUCRO TOTAL
         double lucroTotal = totalVenda - totalCompra;
+
+        System.out.printf("Valor total de compra: %.2f%n", totalCompra);
+        System.out.printf("Valor total de venda: %.2f%n", totalVenda);
         System.out.printf("Lucro total: %.2f%n", lucroTotal);
 
         sc.close();
