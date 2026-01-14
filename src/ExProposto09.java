@@ -21,7 +21,7 @@ public class ExProposto09 {
         int contAbaixoDe10 = 0;
         int contEntre10E20 = 0;
         int contAcimaDe20 = 0;
-        for (int i=0; i<N; i++) {
+        for (int i=0; i < produtos.length; i++) {
 
             double lucro = precoVenda[i] - precoCompra[i];
             double porcentagemDeLucro = lucro / precoCompra[i] * 100.0;
